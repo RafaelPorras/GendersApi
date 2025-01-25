@@ -2,6 +2,8 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
+use App\Http\Controllers\GenderController;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -13,6 +15,9 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+$router->get('/genders','GenderController@index');
+$router->post('/genders', 'GenderController@store');
+$router->get('/genders/{gender}','GenderController@show');
+$router->put('/genders/{gender}','GenderController@update');
+$router->patch('/genders/{gender}','GenderController@update');
+$router->delete('/genders/{gender}','GenderController@destroy');
